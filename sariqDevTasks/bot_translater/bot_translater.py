@@ -2,6 +2,8 @@ from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 from translater import translater
+
+# bu yerga token kiritamiz
 TOKEN = ""
 
 bot = Bot(token=TOKEN)
@@ -17,6 +19,6 @@ async def process_start_command(message: types.Message):
 async def transleter(msg: types.Message):
     await bot.send_message(msg.from_user.id, translater(msg.text))
 
-
+# botni ishga tushuramiz
 if __name__ == '__main__':
     executor.start_polling(dp)
