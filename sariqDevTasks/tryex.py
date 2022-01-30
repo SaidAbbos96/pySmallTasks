@@ -10,7 +10,7 @@ except ZeroDivisionError:
 else:
     print("else bajarildi !!!")
     print(raqam * raqam)
-finally:
+finally:    
     print("finally bajarildi !!!")
 
 print("Dastur ohirigacha bajarildi !!!")
