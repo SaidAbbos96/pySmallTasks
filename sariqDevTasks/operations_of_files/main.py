@@ -1,5 +1,5 @@
 # filegacha path
-path = "operations_of_files/"
+# path = "operations_of_files/"
 
 # 'w'
 # open('file.txt','w')
@@ -22,10 +22,10 @@ path = "operations_of_files/"
 
 
 # fileni yozish uchun ochamiz yoki yaratib yozamiz
-with open(path + "test.txt", "w") as file:
-    file.write("bu test file edi")
+# with open(path + "test.txt", "w") as file:
+#     file.write("bu test file edi")
 
-# fileni o'qish uchun ochamiz
-with open(path + "test.txt", "r") as file:
-    for line in file:
-        print(line)
+# # fileni o'qish uchun ochamiz
+# with open(path + "test.txt", "r") as file:
+#     for line in file:
+#         print(line)
