@@ -64,8 +64,66 @@ class Name():
         return f"{self.__first_name[0]}.{self.__last_name[0]}".upper()
 
 
-human = Name("BAhoDir", "eshOnoV")
-print(human.first_name)
-print(human.last_name)
-print(human.full_name)
-print(human.initials)
+# human = Name("BAhoDir", "eshOnoV")
+# print(human.first_name)
+# print(human.last_name)
+# print(human.full_name)
+# print(human.initials)
+
+
+class Calculator():
+
+    @classmethod
+    def add(cls, x, y):
+        return x + y
+
+    @classmethod
+    def subtract(cls, x, y):
+        return x - y
+
+    @classmethod
+    def multiply(cls, x, y):
+        return x * y
+
+    @classmethod
+    def divide(cls, x, y):
+        return x / y
+
+
+# print(Calculator.add(3, 5))
+# print(Calculator.subtract(10, 5))
+# print(Calculator.multiply(4, 5))
+# print(Calculator.divide(81, 9))
+
+
+class Employee():
+    def __init__(self, f_name: str, l_name: str, salary: int):
+        self.__first_name = f_name
+        self.__last_name = l_name
+        self.__salary = int(salary)
+
+    def get_info(self):
+        return f"Ishchi obj\nism: {self.first_name }, Familiya: {self.last_name}, Maosh: {self.salary}."
+
+    @property
+    def first_name(self):
+        return self.__first_name.title()
+
+    @property
+    def last_name(self):
+        return self.__last_name.title()
+
+    @property
+    def salary(self):
+        return self.__salary
+
+    @classmethod
+    def from_string(cls, scrabe: str):
+        datas = scrabe.split("-")
+        return Employee(datas[0], datas[1], datas[2])
+
+    def __repr__(self):
+        return f"{Employee.__name__} classidan yaratilgan\n{self.get_info()}"
+
+
+print(Employee.from_string("Said-bobo-35000000"))
