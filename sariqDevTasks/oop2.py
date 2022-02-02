@@ -186,3 +186,44 @@ class Circle:
 
     def get_perimeter(self):
         return 2 * math.pi * self.r
+
+
+prices = {"Strawberries": 1.5, "Banana": 0.5, "Mango": 2.5,
+          "Blueberries": 1, "Raspberries": 1, "Apple": 1.75,
+          "Pineapple": 3.5}
+
+
+class Bavarage():
+    def __init__(self, ingredients: list):
+        self.ingredients = ingredients
+        self.cost = sum([prices[fruit] for fruit in self.ingredients])
+        self.price = self.cost * 2.5
+
+    def get_cost(self):
+        return f"${self.cost:.2f}"
+
+    def get_price(self):
+        return f"${self.price:.2f}"
+
+    def get_name(self):
+        mylist = sorted([i.replace("ies", "y") for i in self.ingredients])
+        return f"{' '.join(mylist)} {'Fusion' if len(mylist) > 1 else 'smoothie'}"
+
+
+obj1 = Bavarage(["Banana"])
+print(obj1.ingredients)
+print(obj1.get_cost())
+print(obj1.get_price())
+print(obj1.get_name())
+
+obj2 = Bavarage(["Banana", "Apple"])
+print(obj2.ingredients)
+print(obj2.get_cost())
+print(obj2.get_price())
+print(obj2.get_name())
+
+obj3 = Bavarage(["Raspberries", "Strawberries", "Blueberries"])
+print(obj3.ingredients)
+print(obj3.get_cost())
+print(obj3.get_price())
+print(obj3.get_name())
