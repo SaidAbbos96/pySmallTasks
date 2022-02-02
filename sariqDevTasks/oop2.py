@@ -1,3 +1,6 @@
+import math
+
+
 class Character():
     # Contsanta na urovne classa :) lekin o'zgartirsa bo'ladi Character.__MAX_SPEED = 210
     __MAX_SPEED = 200
@@ -126,4 +129,60 @@ class Employee():
         return f"{Employee.__name__} classidan yaratilgan\n{self.get_info()}"
 
 
-print(Employee.from_string("Said-bobo-35000000"))
+# print(Employee.from_string("Said-bobo-35000000"))
+
+class Pizza():
+    __order_number = 0
+
+    def __init__(self, ingredients: list):
+        self.__ingredients = ingredients
+        Pizza.__order_number += 1
+        self.__order_number = Pizza.__order_number
+
+    @property
+    def ingredients(self) -> list:
+        return self.__ingredients
+
+    @property
+    def order_number(self):
+        return self.__order_number
+
+    @classmethod
+    def order_number(cls):
+        return cls.__order_number
+
+    @classmethod
+    def orders_count(cls):
+        return cls.__order_number
+
+    @classmethod
+    def garden_feast(cls):
+        return cls(["spinach", "olives", "mushroom"])
+
+    @classmethod
+    def meat_festival(cls):
+        return cls(["beef", "meatball", "bacon"])
+
+    @classmethod
+    def hawaiian(cls):
+        return cls(["ham", "pineapple"])
+
+
+# p1 = Pizza(["bacon", "parmesan", "ham"])
+# p2 = Pizza.garden_feast()
+# print(p1.ingredients)
+# print(p2.ingredients)
+# print(p1.order_number())
+# print(p2.order_number())
+# print(Pizza.orders_count())
+
+
+class Circle:
+    def __init__(self, r=0):
+        self.r = r
+
+    def get_area(self):
+        return math.pi * self.r ** 2
+
+    def get_perimeter(self):
+        return 2 * math.pi * self.r
