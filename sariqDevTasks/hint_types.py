@@ -1,5 +1,5 @@
 import random
-from typing import Any, Optional, List, Tuple, Iterable, Literal, Final, Dict, TypedDict, Union, overload
+from typing import Any, Protocol, Optional, List, Tuple, Iterable, Literal, Final, Dict, TypedDict, Union, overload
 
 
 #
@@ -57,18 +57,45 @@ from typing import Any, Optional, List, Tuple, Iterable, Literal, Final, Dict, T
 
 
 #  overload
-@overload
-def funcsum(x: int, y: int, parse_str: Literal[False]) -> int: ...
+# @overload
+# def funcsum(x: int, y: int, parse_str: Literal[False]) -> int: ...
+#
+#
+# @overload
+# def funcsum(x: int, y: int, parse_str: Literal[True]) -> str: ...
+#
+#
+# def funcsum(x: int, y: int, parse_str: bool) -> Union[str, int]:
+#     res = x + y
+#     return str(res) if parse_str else res
+#
+#
+# print(funcsum(10, 5, False))
+# print(type(funcsum(10, 5, True)))
+
+# protocol hnting
+class Bird:
+    def fly(self):
+        print(f"Flying bird")
 
 
-@overload
-def funcsum(x: int, y: int, parse_str: Literal[True]) -> str: ...
+class Plane:
+    def fly(self):
+        print(f"Flying airplane")
 
 
-def funcsum(x: int, y: int, parse_str: bool) -> Union[str, int]:
-    res = x + y
-    return str(res) if parse_str else res
+class Fish:
+    def swim(self):
+        print("fish is swin")
+
+class Flyable(Protocol):
+    def fly(self): ...
 
 
-print(funcsum(10, 5, False))
-print(type(funcsum(10, 5, True)))
+def run_fly(objects: List[Flyable]):
+    for obj in objects:
+        obj.fly()
+
+
+# run_fly([Bird(), Plane(), Fish()])# AttributeError: 'Fish' object has no attribute 'fly'
+run_fly([Bird(), Plane()])# ok
