@@ -114,3 +114,19 @@ class Pagination:
         start = (self.current_page - 1) * self.page_size
         end = start + self.page_size
         return self.items[start:end]
+
+
+# task parse romain numbers
+romans = dict(I=1, V=5, X=10, L=50, C=100, D=500, M=1000)
+
+
+def parse_romain(roman: str):
+    res = 0
+    for key, value in enumerate(roman):
+        if key + 1 < len(roman) and romans[value] < romans[roman[key + 1]]:
+            res -= romans[roman[key]]
+        else:
+            res += romans[roman[key]]
+    return res
+
+print(parse_romain("XVI"))
