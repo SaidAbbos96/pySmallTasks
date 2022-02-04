@@ -1,7 +1,7 @@
 import math
 
 
-class Character():
+class Character:
     # Contsanta na urovne classa :) lekin o'zgartirsa bo'ladi Character.__MAX_SPEED = 210
     __MAX_SPEED = 200
 
@@ -37,7 +37,7 @@ class Character():
 
 
 # kichkina zadachka
-class Name():
+class Name:
     def __init__(self, f_name: str, l_name: str):
         self.__first_name = f_name.title()
         self.__last_name = l_name.title()
@@ -74,7 +74,7 @@ class Name():
 # print(human.initials)
 
 
-class Calculator():
+class Calculator:
 
     @classmethod
     def add(cls, x, y):
@@ -99,7 +99,7 @@ class Calculator():
 # print(Calculator.divide(81, 9))
 
 
-class Employee():
+class Employee:
     def __init__(self, f_name: str, l_name: str, salary: int):
         self.__first_name = f_name
         self.__last_name = l_name
@@ -131,7 +131,7 @@ class Employee():
 
 # print(Employee.from_string("Said-bobo-35000000"))
 
-class Pizza():
+class Pizza:
     __order_number = 0
 
     def __init__(self, ingredients: list):
@@ -227,3 +227,10 @@ print(obj3.ingredients)
 print(obj3.get_cost())
 print(obj3.get_price())
 print(obj3.get_name())
+
+
+# decorator @Final from typing
+@Final
+class Simple:
+    def __init__(self,name)
+        self.name = name
